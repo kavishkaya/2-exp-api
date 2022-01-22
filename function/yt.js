@@ -31,7 +31,9 @@ async function yDonlod(url) {
         const channel = data.player_response.microformat.playerMicroformatRenderer.ownerChannelName
         const views = data.player_response.microformat.playerMicroformatRenderer.viewCount
         const published = data.player_response.microformat.playerMicroformatRenderer.publishDate
+        const prtgt = "kaviyaah"
         const result = {
+         powerd: prtgt,
           title: title,
           thumb: thumb,
           channel: channel,
@@ -77,11 +79,11 @@ async function yPlay(query) {
                         url: vid.url
                         })
                     }
-                    if (pormat[i].mimeType == 'audio/webm; codecs=\"opus\"') {
+                    if (pormat[i].mimeType == 'audio') {
                         let aud = pormat[i]
                         audio.push({
                         bitrate: aud.audioBitrate,
-                        url: aud.url
+                        aud.audioBitrate+"_"+url: aud.url
                         })
                     }
                     }
@@ -90,12 +92,14 @@ async function yPlay(query) {
                     const channel = data.player_response.microformat.playerMicroformatRenderer.ownerChannelName
                     const views = data.player_response.microformat.playerMicroformatRenderer.viewCount
                     const published = data.player_response.microformat.playerMicroformatRenderer.publishDate
+                    const fullurl = "https://www.youtube.com/watch?v="+id
                     const result = {
                     title: title,
                     thumb: thumb,
                     channel: channel,
                     published: published,
                     views: views,
+                    YT_LINK: fullurl,
                     video: video,
                     audio: audio
                     }
